@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../frontend(css)/style.css">
+    <title>Punya Clinic Watch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.0/sweetalert2.all.min.js"></script>
+    <script type="module" src="../ui(JS)/main/index.js"></script>
+</head>
+
+<body style="font-family: 'Prompt', sans-serif;">
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top custom-navbar p-2">
+        <div class="container d-flex justify-content-between">
+            <div class="navbar-brand fs-5" style="font-family: 'Cinzel', serif;">
+                <span class="text-black">PUNYA </span><span class="text-black">CLINIC </span><span
+                    class="text-gold">WATCH</span>
+            </div>
+
+            <!-- จอใหญ่ -->
+            <div class="d-none d-lg-flex justify-content-end align-items-center gap-5">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#part1" style="cursor: pointer;">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#part2"
+                            style="cursor: pointer;">ขั้นตอนการใช้บริการ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#part3"
+                            style="cursor: pointer;">ที่อยู่และการชำระเงิน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#part4" style="cursor: pointer;">ติดต่อเรา</a></li>
+                </ul>
+
+                <!-- จอใหญ่ -->
+                <div class="Login gap-3 d-none d-lg-flex justify-content-end">
+                    <button class="btn btn1-custom" data-bs-toggle="modal" data-bs-target="#loginmodal">Login</button>
+                    <button class="btn btn2-custom" data-bs-toggle="modal" data-bs-target="#signupmodal">Signup</button>
+                </div>
+            </div>
+
+            <!-- จอเล็ก -->
+            <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end w-75 h-100" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-body">
+            <button class="btn btn1-custom" data-bs-toggle="modal" data-bs-target="#loginmodal">Login</button>
+            <button class="btn btn2-custom" data-bs-toggle="modal" data-bs-target="#signupmodal">Signup</button>
+
+            <hr class="border-2 mb-5 text-gold opacity-100">
+
+            <ul class="navbar-nav gap-3 text gap-5">
+                <li class="nav-item"><a class="nav-link" href="#">หน้าแรก</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">ขั้นตอนการใช้บริการ</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#payment"
+                        style="cursor: pointer;">ที่อยู่และการชำระเงิน</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#contact"
+                        style="cursor: pointer;">ติดต่อเรา</a></li>
+                <li>
+                    <hr class="border-2 mt-5 mb-5 text-gold opacity-100">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- login -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fw-bold">เข้าสู่<span class="text-gold">ระบบ</span></h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="login-form">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <p>ที่อยู่อีเมล</p>
+                            <input type="email" class="form-control" name="email" id="login-email" placeholder="อีเมล">
+                            <p class="small mt-2 text-gray">เราจะไม่แชร์อีเมลของคุณกับใคร</p>
+                        </div>
+                        <div class="mb-3">
+                            <p>รหัสผ่าน</p>
+                            <input type="password" class="form-control" name="password" id="login-password"
+                                placeholder="รหัสผ่าน">
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" class="form-check-input" id="check">
+                            <p>จดจำฉัน</p>
+                        </div>
+                        <div class="mb-3">
+                            <a href="#">ลืมรหัสผ่าน</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn1-custom" data-bs-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" id="login-btn" class="btn btn2-custom">เข้าสู่ระบบ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- signup -->
+    <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fw-bold" id="signupmodal">สมัคร<span class="text-gold">สมาชิก</span></h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="signup-form">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <p>ที่อยู่อีเมล</p>
+                            <input type="email" class="form-control" name="email" id="signup-email" placeholder="อีเมล">
+                            <p class="small mt-2" style="color: #8A8578;">เราจะไม่แชร์อีเมลของคุณกับใคร</p>
+                        </div>
+                        <div class="mb-3">
+                            <p>รหัสผ่าน</p>
+                            <input type="password" class="form-control" name="password" id="signup-password"
+                                placeholder="รหัสผ่าน">
+                        </div>
+                        <div class="mb-3">
+                            <p>ยืนยันรหัสผ่าน</p>
+                            <input type="password" class="form-control" name="confirmpassword"
+                                id="signup-confirmpassword" placeholder="รหัสผ่าน">
+                        </div>
+                        <div class="mb-3">
+                            <p>เบอร์โทรศัพท์</p>
+                            <input type="tel" class="form-control" name="tel" id="signup-tel" placeholder="012-345-6789"
+                                maxlength="12">
+                            <small id="tel-error"></small>
+                        </div>
+                        <div class="mb-3">
+                            <p>ชื่อผู้ใช้</p>
+                            <input type="text" class="form-control" name="username" id="signup-username"
+                                placeholder="ชื่อผู้ใช้">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn1-custom" data-bs-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" id="signup-btn" class="btn btn2-custom">สมัครสมาชิก</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ฝั่งซ้าย -->
+    <section id="part1">
+        <div class="container mt-5 mb-5 py-5">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-5 align-self-center">
+                    <h1 class="fw-bold">รับซ่อม<span class="text-gold">นาฬิกา</span></h1>
+                    <h1 class="display-3 fw-bold">ทุกยี่ห้อทุกอาการ</h1>
+                    <h5>จากช่างผู้เชี่ยวชาญกว่า 30 ปี</h5>
+                </div>
+
+                <!-- ฝั่งขวา -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="row g-4">
+
+                        <!-- card 1 -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex" id="watchcard">
+                            <div class="card w-100 custom-hover bg-custom border-0 rounded-5" style="cursor: pointer;">
+                                <div class="card-body pt-5 pb-0">
+                                    <i class="fa-solid fa-battery-half text-gold mb-3 fs-3"></i>
+                                    <p class="fs-6 mb-1 fw-bold">เปลี่ยนถ่านนาฬิกา</p>
+                                    <p class="small text-gray">เปลี่ยนถ่านนาฬิกาทุกร่น ทุกยี่ห้อ ราคาเริ่มต้นที่ 120.-
+                                        รับประกันการใช้งาน 1 ปี</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 2 -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex" id="remotecard">
+                            <div class="card w-100 custom-hover bg-custom border-0 rounded-5" style="cursor: pointer;">
+                                <div class="card-body pt-5 pb-0">
+                                    <i class="fa-solid fa-key text-gold mb-3 fs-4"></i>
+                                    <p class="fs-6 mb-1 fw-bold">เปลี่ยนถ่านรีโมท</p>
+                                    <p class="small text-gray">เปลี่ยนถ่านรีโมททุกรุ่น ทุกยี่ห้อ ราคาเริ่มต้นที่ 120.-
+                                        รับประกันการใช้งาน 1 ปี</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 3 -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex" id="repaircard">
+                            <div class="card w-100 custom-hover bg-custom border-0 rounded-5" style="cursor: pointer;">
+                                <div class="card-body pt-5 pb-0">
+                                    <i class="fa-solid fa-screwdriver-wrench text-gold mb-3 fs-4"></i>
+                                    <p class="fs-6 mb-1 fw-bold">เปลี่ยนอะไหล่นาฬิกา</p>
+                                    <p class="small text-gray">เปลี่ยนอะไหล่นาฬิกาทุกรุ่น ทุกยี่ห้อ</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 4 -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex" id="autowatchcard">
+                            <div class="card w-100 custom-hover bg-custom border-0 rounded-5" style="cursor: pointer;">
+                                <div class="card-body pt-5 pb-0">
+                                    <i class="fa-solid fa-clock text-gold mb-3 fs-4"></i>
+                                    <p class="fs-6 mb-1 fw-bold">สำหรับนาฬิกาออโต้</p>
+                                    <p class="small text-gray">ซ่อม-เปลี่ยนอะไหล่สำหรับนาฬิกาออโต้ทุกรุ่น ทุกยี่ห้อ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ขั้นตอนการใช้บริการ -->
+    <section class="part2">
+        <div class="container">
+            <div class="card mb-5 mt-5 shadow-lg border-0 rounded-5 bg-custom">
+                <div class="card-body">
+
+                    <!-- หัวข้อ -->
+                    <div id="part2">
+                        <p class="fs-3 mb-5 fw-bold"><span class="text-gold">ขั้นตอน</span>การใช้บริการ</p>
+                    </div>
+
+                    <!-- step -->
+                    <ul class="d-flex justify-content-between flex-column flex-lg-row">
+                        <li class="fw-bold">เลือกการบริการ
+                            <p class="small text-gray">เลือกการบริการของเรา</p>
+                        </li>
+                        <li class="fw-bold">จัดส่งมาหาเรา
+                            <p class="small text-gray">จัดส่งเพื่อมาตรวจสอบ</p>
+                        </li>
+                        <li class="fw-bold">ประเมินราคา
+                            <p class="small text-gray">ช่างจะตรวจสอบและประเมินราคา</p>
+                        </li>
+                        <li class="fw-bold">ชำระเงิน
+                            <p class="small text-gray">ชำระเงินผ่านช่องทางช่องทางต่างๆ</p>
+                        </li>
+                        <li class="fw-bold">ดำเนินการ
+                            <p class="small text-gray">ดำเนินการซ่อม</p>
+                        </li>
+                        <li class="fw-bold">ส่งสินค้า
+                            <p class="small text-gray">จัดส่งสินค้า</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- map -->
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg border-0 w-50" style="min-width: 300px; max-width: 400px;">
+            <div class="ratio ratio-1x1">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d969.3575442451656!2d100.62787639999999!3d13.6315765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d5f1b72935aff%3A0x1c9f348296998663!2z4Lib4Lix4LiN4LiN4LiyIOC4i-C5iOC4reC4oeC4meC4suC4rOC4tOC4geC4sg!5e0!3m2!1sth!2sth!4v1773927829218!5m2!1sth!2sth"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <hr class="border-2 mt-5 mb-5 ms-3 me-3 text-gold opacity-100">
+
+    <section id="part4">
+        <div class="footer justify-content-center align-items-center text-gray">
+            <div class="foot1 text-center">Copyright © 2026 Punya Clinic Watch. All rights reserved.</div>
+            <div class="foot2 text-center mt-3">Tel. 086-381-2874 (คุณปัญญา) ที่อยู่ร้าน (หน้าร้านบานาน่า ช้อปปิ้ง ,
+                146/1-2 , หมู่ที่ 5,ถนนสุขุมวิท 113 , ตำบล สำโรงเหนือ , อำเภอเมืองสมุทรปราการ , สมุทรปราการ 10270)
+                (เปิดทุกวัน 9.00 น.-21.00น.)</div>
+            <div class="foot3 text-center mt-3">Line Id :panya0639828065</div>
+        </div>
+    </section>
+
+</body>
+
+</html>
